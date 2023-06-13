@@ -19,7 +19,7 @@
 
 #include QMK_KEYBOARD_H
 
-#define INDICATOR_BRIGHTNESS 30
+#define INDICATOR_BRIGHTNESS 20
 
 #define HSV_OVERRIDE_HELP(h, s, v, Override) h, s , Override
 #define HSV_OVERRIDE(hsv, Override) HSV_OVERRIDE_HELP(hsv,Override)
@@ -27,38 +27,6 @@
 #define LED_SPLIT (RGBLED_NUM/2)
 
 // Light combinations
-#define SET_INDICATORS(hsv) \
-	{0, 1, HSV_OVERRIDE_HELP(hsv, INDICATOR_BRIGHTNESS)}, \
-    {LED_SPLIT+0, 1, hsv}
-#define SET_UNDERGLOW(hsv) \
-	{1, 6, hsv}, \
-    {LED_SPLIT+1, 6,hsv}
-
-#define SET_NUMPAD(hsv)     \
-	{LED_SPLIT+15, 5, hsv},\
-	  {LED_SPLIT+22, 3, hsv},\
-	  {LED_SPLIT+27, 3, hsv}
-
-#define SET_NUMROW(hsv) \
-	{10, 2, hsv}, \
-		{20, 2, hsv}, \
-		{30, 2, hsv}, \
-	  {LED_SPLIT+10, 2, hsv}, \
-	  {LED_SPLIT+ 20, 2, hsv}, \
-	  {LED_SPLIT+ 30, 2, hsv}
-
-#define SET_INNER_COL(hsv)	\
-	{33, 4, hsv}, \
-	  {LED_SPLIT+ 33, 4, hsv}
-
-#define SET_OUTER_COL(hsv) \
-	{7, 4, hsv}, \
-	  {LED_SPLIT+ 7, 4, hsv}
-
-#define SET_THUMB_CLUSTER(hsv) 	\
-	{25, 2, hsv}, \
-	  {LED_SPLIT+ 25, 2, hsv}
-
 #define SET_LAYER_ID(hsv) 	\
 	{0, 1, HSV_OVERRIDE_HELP(hsv, INDICATOR_BRIGHTNESS)}, \
     {LED_SPLIT+0, 1, HSV_OVERRIDE_HELP(hsv, INDICATOR_BRIGHTNESS)}, \
@@ -66,8 +34,8 @@
     {LED_SPLIT+1, 6, hsv}, \
 		{7, 4, hsv}, \
 	  {LED_SPLIT+ 7, 4, hsv}, \
-		{25, 2, hsv}, \
-	  {LED_SPLIT+ 25, 2, hsv}
+		{26, 2, hsv}, \
+	  {LED_SPLIT+ 26, 2, hsv}
 
 
 enum sofle_layers {
@@ -188,9 +156,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|------+-------+--------+--------+--------+------|                   |--------+-------+--------+--------+--------+---------|
   QK_BOOT, XXXXXXX,XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   //|------+-------+--------+--------+--------+------|                   |--------+-------+--------+--------+--------+---------|
-  RGB_TOG, RGB_HUI,RGB_SAI, RGB_VAI, XXXXXXX, XXXXXXX,             C(G(KC_LEFT)),KC_NO,KC_NO,C(G(KC_RGHT)),XXXXXXX, XXXXXXX,
+  RGB_TOG, RGB_HUI,RGB_SAI, RGB_VAI, RGB_SPI, XXXXXXX,                    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   //|------+-------+--------+--------+--------+------|  ===  |   |  ===  |--------+-------+--------+--------+--------+---------|
-  RGB_MOD, RGB_HUD,RGB_SAD, RGB_VAD, XXXXXXX,XXXXXXX, XXXXXXX,   XXXXXXX, XXXXXXX, KC_MPRV, KC_MPLY, KC_MNXT, XXXXXXX, XXXXXXX,
+  RGB_MOD, RGB_HUD,RGB_SAD, RGB_VAD, RGB_SPD, XXXXXXX, XXXXXXX,   XXXXXXX, XXXXXXX, KC_MPRV, KC_MPLY, KC_MNXT, XXXXXXX, XXXXXXX,
   //|------+-------+--------+--------+--------+------|  ===  |   |  ===  |--------+-------+--------+--------+--------+---------|
                    _______, _______, _______, _______, _______,     _______, _______, _______, _______, _______
     //            \--------+--------+--------+---------+-------|   |--------+---------+--------+---------+-------/
